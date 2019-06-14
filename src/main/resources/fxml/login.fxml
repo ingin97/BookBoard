@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- avenir font? -->
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="300.0" styleClass="pane" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+    <children>
+        <Label layoutX="83.0" layoutY="51.0" stylesheets="@Styles.css" text="Login:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <JFXTextField fx:id="txtUser" focusColor="#d3cbc2" labelFloat="true" layoutX="83.0" layoutY="90.0" promptText="Brukernavn" stylesheets="@Styles.css" unFocusColor="#d3cbc2" />
+        <JFXPasswordField fx:id="txtPassword" focusColor="#d3cbc2" labelFloat="true" layoutX="83.0" layoutY="138.0" promptText="Passord" style="-fx-prompt-text-fill: #d3cbc2; -jfx-focus-color: #d3cbc2; -jfx-unfocus-color: #d3cbc2;" stylesheets="@Styles.css" unFocusColor="#d3cbc2" />
+        <JFXButton fx:id="btnLogin" alignment="CENTER" layoutX="83.0" layoutY="181.0" onAction="#login" prefHeight="22.0" prefWidth="135.0" ripplerFill="#2b2927" stylesheets="@Styles.css" text="Logg inn" textFill="#d3cbc2">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </JFXButton>
+        <Label fx:id="lblStatus" layoutX="83.0" layoutY="217.0" textFill="#d3cbc2">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

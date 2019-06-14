@@ -1,0 +1,61 @@
+image: maven:latest
+
+stages:
+    - build
+    - test
+    - deploy
+
+variables:
+  MAVEN_OPTS: "-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
+
+compile-job:
+  stage: build
+  script:
+    - 'mvn clean compile'
+  artifacts:
+    paths:
+    - target/staging
+    
+unittest-job:
+  stage: test
+  script:
+     - 'mvn test'
+  dependencies:
+    - compile-job
+  artifacts:
+    paths:
+    - target/staging
+
+createjar-job:
+  stage: deploy
+  script:
+    - 'mvn assembly:single'
+  dependencies:
+    - unittest-job
+  only:
+    - master
+  artifacts:
+    paths:
+    - /builds/programvareutvikling-v19/gruppe-16/target/PU16-BookBoard 1.0.1-jar-with-dependencies.jar
+    
+# most of this taken from https://stackoverflow.com/questions/37785154/how-to-enable-maven-artifact-caching-for-gitlab-ci-runner
+
+#cache:
+#  paths:
+#    - .m2/repository
+  # keep cache across branch
+#  key: "$CI_BUILD_REF_NAME"
+
+#variables:
+#  MAVEN_OPTS: "-Djava.awt.headless=true -Dmaven.repo.local=.m2/repository"
+#  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -Dgitlab-ci=true"
+
+#build:
+#  script:
+#    - mvn $MAVEN_CLI_OPTS compile
+
+#test:
+#  stage: test
+#  script:
+#    - mvn $MAVEN_CLI_OPTS test

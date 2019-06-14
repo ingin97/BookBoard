@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- avenir font? -->
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="pane" fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" styleClass="pane" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OvingController">
+    <children>
+        <Label fx:id="lblBrukernavn" alignment="CENTER_RIGHT" layoutX="463.0" layoutY="14.0" prefHeight="20.0" prefWidth="114.0" stylesheets="@Styles.css" text="Brukernavn">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <JFXButton fx:id="btnLoggut" alignment="CENTER" layoutX="586.0" layoutY="13.0" onAction="#logout" prefHeight="22.0" prefWidth="100.0" ripplerFill="#2b2927" stylesheets="@Styles.css" text="Logg ut" textFill="#d3cbc2">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </JFXButton>
+        <Label fx:id="lblStatus" alignment="TOP_LEFT" layoutX="209.0" layoutY="247.0" prefHeight="153.0" prefWidth="225.0" stylesheets="@Styles.css">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <JFXButton fx:id="btnBack" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="13.0" onAction="#back" prefHeight="24.0" prefWidth="51.0" ripplerFill="#2b2927" style="-fx-border-radius: 20;" stylesheets="@Styles.css" text="←" textFill="#d3cbc2">
+            <font>
+                <Font size="22.0" />
+            </font>
+        </JFXButton>
+      <Label fx:id="lblØving" layoutX="207.0" layoutY="14.0" prefHeight="20.0" prefWidth="114.0" stylesheets="@Styles.css" text="Opprett øving">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <JFXListView fx:id="listView" layoutX="25.0" layoutY="70.0" prefHeight="386.0" prefWidth="143.0" />
+      <JFXTextField fx:id="txtTittel" focusColor="#4d4d4d" layoutX="207.0" layoutY="70.0" prefHeight="24.0" prefWidth="225.0" promptText="Tittel" stylesheets="@Styles.css" />
+      <JFXTextField fx:id="txtFrist" focusColor="#4d4d4d" layoutX="207.0" layoutY="109.0" prefHeight="24.0" prefWidth="225.0" promptText="Frist" stylesheets="@Styles.css" />
+        <JFXTextArea fx:id="txtBeskrivelse" focusColor="#4d4d4d" layoutX="209.0" layoutY="143.0" prefHeight="62.0" prefWidth="225.0" promptText="Beskrivelse" stylesheets="@Styles.css" />
+      <JFXButton fx:id="btnOpprett" alignment="CENTER" contentDisplay="CENTER" layoutX="357.0" layoutY="220.0" onAction="#opprett" prefHeight="19.0" prefWidth="76.0" text="Opprett" textAlignment="CENTER" />
+    </children>
+</AnchorPane>
